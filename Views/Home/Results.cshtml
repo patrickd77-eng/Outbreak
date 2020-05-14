@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Results";
+    var search = ViewData["searchTerm"];
+    var searchCount = ViewData["searchResultsCount"];
+    var relevantCount = ViewData["relevantCount"];
+    var thisMonthCount = ViewData["thisMonthCount"];
+    var thisYearCount = ViewData["thisYearCount"];
+
+}
+
+<div class="card w-75 mt-2 mx-auto mb-4 bg-dark text-center text-light">
+    <h2 class="text-center">@searchCount results for "@search"</h2>
+    <h3>@relevantCount of these mention the virus specifically.</h3>
+    <h3>@thisMonthCount articles released this month.</h3>
+
+
+    <a asp-action="Index" class="btn btn-secondary mx-auto mb-2 w-25">Go Back</a>
+
+
+</div>
+
+<div class="row">
+
+    @if (Model.Contains("No results found for this virus."))
+    {
+
+        <div class="col-12 text-center">
+            <div class="mt-5 text-light">No recent news results found for this virus...</div>
+
+        </div>
+    }
+
+    else
+    {
+        @foreach (var item in Model)
+        {
+            <div class="col-4 mb-3">
+                <a class="btn btn-info h-100 w-100" href="@item.Split("@!")[1]" rel="nofollow" target="_blank">
+
+                    @item.Split("@!")[0]
+                </a>
+            </div>
+
+
+        }
+    }
+
+
+
+
+
+</div>

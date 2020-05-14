@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Outbreak</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+    </header>
+    <div class="container ">
+        <main role="main" class="pb-3">
+
+            <video autoplay muted loop id="myVideo" src="~/media/virus.mp4"></video>
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-light ">
+        <div class="container">
+            &copy; 2020 - Outbreak
+            <a href="https://www.patrickdavis.co.uk" target="_blank" rel="nofollow">PJD</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
